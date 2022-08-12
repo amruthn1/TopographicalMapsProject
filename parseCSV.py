@@ -5,6 +5,8 @@ import fitz
 import os
 import glob
 
+from segmentPNG import segmentPNG
+
 def clean_dir():
     pdflocalpath = './temp/pdf'
     imglocalpath = './temp/img'    
@@ -33,7 +35,10 @@ def parse_csv_file():
     with open(filedir, 'r') as csvfile:
         reader = csv.reader(csvfile)
         for row in islice(reader, int(numoffiles)):
-            filepatharr.append(row[29])
+            if (row[29] == "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/USTopo/PDF/AL/AL_Abbeville_East_20180410_TM_geo.pdf"):
+                print("skip")
+            else:
+                filepatharr.append(row[29])
     print(filepatharr)
     for index, file in enumerate(filepatharr):
         path = "./temp/pdf/" + str(index) + ".pdf"
@@ -54,3 +59,6 @@ def parse_csv_file():
         img = page.get_pixmap()
         img.save('./temp/img/' + str(filenameindex) + ".png")
         print("Converted PDF #" + str(filenameindex + 1) + " to a PNG file")
+    segmentPNG()
+if __name__ == "__main__":
+    parse_csv_file()

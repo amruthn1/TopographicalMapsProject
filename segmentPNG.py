@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 import os
 import glob
 
+from generateCoords import generateCoords
+
 #split image into segments
 
 def cleanse_dir():
@@ -40,3 +42,6 @@ def segmentPNG():
         cv2.destroyAllWindows() 
         cv2.imwrite('./segmentedoutputs/' + str(index) + '.png', mask)
         cv2.imwrite('./blurred/' + str(index) + '.png', blur)
+    generateCoords()
+if __name__ == "__main__":
+    segmentPNG()

@@ -8,3 +8,7 @@ Uses:
 - Numpy
 
 Still a WIP
+
+First run "python3 utils.py clean" at the root of the project to purge any unnecessary files
+
+Then run "python3 runner.py" in order to run the project

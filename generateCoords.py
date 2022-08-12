@@ -4,6 +4,8 @@ import image_slicer
 import os
 import glob
 
+from plotCoords import plotCoords
+
 #img = cv2.imread('./test.png')
 #average_color_row = np.average(img, axis=0)
 #avg_color = np.average(average_color_row, axis=0)
@@ -32,7 +34,7 @@ def generateCoords():
     cleanMetadata()
     dir = os.fsencode('./blurred')
     for index, file in enumerate(os.listdir(dir)):
-        print("Cleaning old files")
+        print("Cleaning old sliced files")
         cleanDir()
         filename = os.fsdecode(file)
         filedir = './blurred/' + filename
@@ -52,6 +54,8 @@ def generateCoords():
             file.write(" ")
             file.write(str(avg_color[0]))
             file.write('\n')
-            file.close()            
-generateCoords()
+            file.close()        
+    plotCoords()    
+if __name__ == "__main__":
+    generateCoords()
 
