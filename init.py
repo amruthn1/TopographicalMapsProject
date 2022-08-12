@@ -1,8 +1,11 @@
-import parseCSV
-import processSVG
+from plotCoords import plotCoords
+from generateCoords import generateCoords
+from parseCSV import parse_csv_file
+from segmentPNG import segmentPNG
 
 def init():
-    parseCSV.parse_csv_file()
-    #and then
-    processSVG.process_svg()
+    parse_csv_file()
+    segmentPNG()
+    generateCoords()
+    plotCoords()
 init()

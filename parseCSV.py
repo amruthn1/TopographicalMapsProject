@@ -44,9 +44,13 @@ def parse_csv_file():
     for filenameindex, pdfpath in enumerate(pdfpatharr):
         pdf = fitz.open(pdfpath)
         page = pdf.load_page(0)
-        img = page.get_svg_image(text_as_path = True)
-        file = open('./temp/img/' + str(filenameindex) + ".svg", 'x')
-        file.write(img)
-        print("Converted PDF #" + str(filenameindex + 1) + " to an SVG file")
-        file.close()
-parse_csv_file()
+        #For SVG
+        #img = page.get_svg_image(text_as_path = True)
+        #file = open('./temp/img/' + str(filenameindex) + ".svg", 'x')
+        #file.write(img)
+        #print("Converted PDF #" + str(filenameindex + 1) + " to an SVG file")
+        #file.close()
+        #For PNG
+        img = page.get_pixmap()
+        img.save('./temp/img/' + str(filenameindex) + ".png")
+        print("Converted PDF #" + str(filenameindex + 1) + " to a PNG file")
