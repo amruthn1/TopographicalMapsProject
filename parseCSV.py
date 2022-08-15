@@ -7,9 +7,11 @@ import glob
 
 from segmentPNG import segmentPNG
 
+
 def clean_dir():
+    # Clean temp directories
     pdflocalpath = './temp/pdf'
-    imglocalpath = './temp/img'    
+    imglocalpath = './temp/img'
     if not os.path.isdir(pdflocalpath):
         raise Exception("The pdf directory in the temp folder does not exist")
     else:
@@ -26,9 +28,13 @@ def clean_dir():
             files = glob.glob(imglocalpath + "/*")
             for i in files:
                 os.remove(i)
+
+
 def parse_csv_file():
+    # Iterate through CSV file and parse out PDF urls and download them
+    # Then convert the PDF files to PNG files
     clean_dir()
-    filedir = './input/ustopo_historical.csv' 
+    filedir = './input/ustopo_historical.csv'
     filepatharr = []
     pdfpatharr = []
     numoffiles = input("How many files should be processed? ")
@@ -45,20 +51,15 @@ def parse_csv_file():
         response = wget.download(file, path)
         print(response)
         pdfpatharr.append(path)
-    print("Converting PDF files to SVG files")
+    print("Converting PDF files to PNG files")
     for filenameindex, pdfpath in enumerate(pdfpatharr):
         pdf = fitz.open(pdfpath)
         page = pdf.load_page(0)
-        #For SVG
-        #img = page.get_svg_image(text_as_path = True)
-        #file = open('./temp/img/' + str(filenameindex) + ".svg", 'x')
-        #file.write(img)
-        #print("Converted PDF #" + str(filenameindex + 1) + " to an SVG file")
-        #file.close()
-        #For PNG
         img = page.get_pixmap()
         img.save('./temp/img/' + str(filenameindex) + ".png")
         print("Converted PDF #" + str(filenameindex + 1) + " to a PNG file")
     segmentPNG()
+
+
 if __name__ == "__main__":
     parse_csv_file()
