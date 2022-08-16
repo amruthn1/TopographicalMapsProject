@@ -40,9 +40,9 @@ def deploy():
         open('./blurred/.gitkeep', 'w')
 
 
-def clean():
+def clean(shouldDel):
     # Clean out all project directories
-    clean_dir()
+    clean_dir(shouldDel)
     cleanse_dir()
     cleanDir()
     cleanMetadata()
@@ -54,6 +54,6 @@ if __name__ == "__main__":
     elif 'init' in str(sys.argv):
         init()
     elif 'clean' in str(sys.argv):
-        clean()
+        clean(False)
     else:
         raise Exception("Invalid argument")

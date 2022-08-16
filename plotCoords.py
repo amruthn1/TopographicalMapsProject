@@ -21,7 +21,7 @@ def plotCoords():
         csvData = csvData.astype(np.float)
         x = csvData[:, 0] * 100
         y = csvData[:, 1] * 100
-        z = csvData[:, 2] * 70
+        z = csvData[:, 2] * 0.1
         fig = plt.figure(figsize=(100, 100))
         ax = fig.add_subplot(111, projection='3d')
         ax.plot_trisurf(x, y, z, color='white', alpha=0.5,
