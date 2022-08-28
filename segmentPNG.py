@@ -3,9 +3,6 @@ import matplotlib.pyplot as plt
 import os
 import glob
 
-from generateCoords import generateCoords
-
-
 def cleanse_dir():
     # Clean out directory before performing any new segmentation
     seglocalpath = './segmentedoutputs'

@@ -2,9 +2,6 @@ import fitz
 import os
 import glob
 
-from segmentPNG import segmentPNG
-
-
 def clean_dir(switch):
     # Clean temp directories
     pdflocalpath = './temp/pdf'

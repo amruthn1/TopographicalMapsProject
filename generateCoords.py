@@ -4,9 +4,6 @@ import image_slicer
 import os
 import glob
 
-from plotCoords import plotCoords
-
-
 def cleanMetadata():
     # Clean metadata folder
     metadatalocalpath = './metadata'
