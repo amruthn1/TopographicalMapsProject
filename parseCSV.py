@@ -1,6 +1,3 @@
-import csv
-from itertools import islice
-import wget
 import fitz
 import os
 import glob
@@ -63,7 +60,7 @@ def parse_csv_file():
         img = page.get_pixmap()
         img.save('./temp/img/' + str(filenameindex) + ".png")
         print("Converted PDF #" + str(filenameindex + 1) + " to a PNG file")
-    segmentPNG()
+    #segmentPNG()
 
 
 if __name__ == "__main__":

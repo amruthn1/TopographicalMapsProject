@@ -61,7 +61,8 @@ def generateCoords():
             file.write(str(avg_color[0]))
             file.write('\n')
             file.close()
-    plotCoords()
+    #plotCoords()
+    
 
 
 if __name__ == "__main__":

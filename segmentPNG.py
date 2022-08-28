@@ -48,7 +48,7 @@ def segmentPNG():
         blur = cv2.blur(mask, (15, 15))
         cv2.imwrite('./segmentedoutputs/' + str(index) + '.png', mask)
         cv2.imwrite('./blurred/' + str(index) + '.png', blur)
-    generateCoords()
+    #generateCoords()
 
 
 if __name__ == "__main__":
