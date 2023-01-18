@@ -9,8 +9,6 @@ Uses:
 - OpenCV
 - Numpy
 
-Still a WIP
-
 First run "python3 -m utils init" and then "python3 -m utils clean" at the root of the project to purge any unnecessary files
 
 Add the PDF files from the archive you want to view as 3D models
