@@ -9,6 +9,9 @@ Uses:
 
 Still a WIP
 
-First run "python3 utils.py init" and then "python3 utils.py clean" at the root of the project to purge any unnecessary files
+First run "python3 -m utils init" and then "python3 -m utils clean" at the root of the project to purge any unnecessary files
 
-Then run "python3 runner.py" in order to run the project
+Add the PDF files from the archive you want to view as 3D models
+
+Then run "python3 -m runner.py" in order to run the project
+

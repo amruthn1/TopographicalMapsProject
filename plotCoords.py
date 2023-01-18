@@ -2,6 +2,8 @@ import os
 import csv
 import numpy as np
 import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d.axes3d import Axes3D
+from datetime import datetime
 
 def plotCoords():
     # Read through generated metadata
@@ -20,16 +22,14 @@ def plotCoords():
         csvData = csvData.astype(np.float)
         x = csvData[:, 0] * 100
         y = csvData[:, 1] * 100
-        z = csvData[:, 2] * 0.1
+        z = csvData[:, 2] * 0.001
         fig = plt.figure(figsize=(100, 100))
-        #input("Press any key to continue...")
         ax = fig.add_subplot(111, projection='3d')
-        ax.plot_trisurf(x, y, z, color='white', alpha=0.5, linewidth=0, antialiased=False)
+        ax.get_proj = lambda: np.dot(Axes3D.get_proj(ax), np.diag([1, 1, 0.1, 1]))
+        ax.plot_trisurf(x, y, z, color='green', alpha=0.5, linewidth=0, antialiased=False)
         ax.set(xlabel='x', ylabel='y', zlabel='z')
-        ax.scatter(x, y, z, c='green')
         plt.show()
-        #plt.waitforbuttonpress(0)
-    input("Press Enter to continue...")
-    plt.close()
+        input("Press enter to continue...")
+        #plt.savefig(str(datetime.now()).replace(".", "_").replace(" ", "_").replace("-", "_").replace(":", "_") + ".pdf")
 if __name__ == "__main__":
     plotCoords()

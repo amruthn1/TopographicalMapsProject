@@ -21,7 +21,8 @@ def init():
         os.remove('./metadata/.gitkeep')
     if os.path.exists('./blurred/.gitkeep'):
         os.remove('./blurred/.gitkeep')
-
+    if os.path.exists('./output/.gitkeep'):
+        os.remove('./output/.gitkeep')
 
 def deploy():
     # Add .gitkeep files before deploying
@@ -38,6 +39,8 @@ def deploy():
         open('./metadata/.gitkeep', 'w')
     if not os.path.exists('./blurred/.gitkeep'):
         open('./blurred/.gitkeep', 'w')
+    if not os.path.exists('./output/.gitkeep'):
+        open('./output/.gitkeep', 'w')
 
 
 def clean(shouldDel):
