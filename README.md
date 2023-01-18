@@ -1,6 +1,6 @@
 # TopographicalMapsProject
 
-![image](project.jpg)
+<img src="./project.png" alt="image">
 
 A program which parses through a CSV database of topographical maps of various locations around the USA and plots the terrain onto a 3D plane
 
