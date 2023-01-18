@@ -1,6 +1,6 @@
 # TopographicalMapsProject
 
-![image](https://github.com/amruthn1/TopographicalMapsProject/blob/main/project.jpg?raw=true)
+![image](project.jpg)
 
 A program which parses through a CSV database of topographical maps of various locations around the USA and plots the terrain onto a 3D plane
 
