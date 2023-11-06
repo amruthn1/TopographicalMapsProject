@@ -19,7 +19,7 @@ def plotCoords():
             for csvRow in reader:
                 csvData.append(csvRow)
         csvData = np.array(csvData)
-        csvData = csvData.astype(np.float)
+        csvData = csvData.astype(float)
         x = csvData[:, 0] * 100
         y = csvData[:, 1] * 100
         z = csvData[:, 2] * 0.001

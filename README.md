@@ -13,5 +13,5 @@ First run "python3 -m utils init" and then "python3 -m utils clean" at the root 
 
 Add the PDF files from the archive you want to view as 3D models
 
-Then run "python3 -m runner.py" in order to run the project
+Then run "python3 -m runner" in order to run the project
 

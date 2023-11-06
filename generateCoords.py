@@ -1,8 +1,9 @@
 import cv2
 import numpy as np
-import image_slicer
+#import image_slicer
 import os
 import glob
+from imageSplicer import splice
 
 def cleanMetadata():
     # Clean metadata folder
@@ -40,9 +41,12 @@ def generateCoords():
         cleanDir()
         filename = os.fsdecode(file)
         filedir = './blurred/' + filename
-        tiles = image_slicer.slice(filedir, 9801, save=False)
-        image_slicer.save_tiles(
-            tiles, directory='./sliced', prefix='slice', format='png')
+
+        splice(filename, filedir, './sliced', 99)
+        
+        #tiles = image_slicer.slice(filedir, 9801, save=False)
+        #image_slicer.save_tiles(
+        #    tiles, directory='./sliced', prefix='slice', format='png')
         for slicedfile in os.listdir('./sliced'):
             print("Processing slice")
             slicedfilename = os.fsdecode(slicedfile)
